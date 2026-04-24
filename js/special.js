@@ -6,7 +6,7 @@
 // ===== Check If Anniversary Day =====
 function checkAnniversaryDay() {
     const now = new Date();
-    const anniversaryDate = new Date('December 23, 2026');
+    const anniversaryDate = new Date('April 24, 2026');
 
     const isAnniversaryDay =
         now.getFullYear()  === anniversaryDate.getFullYear() &&
