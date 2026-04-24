@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket ❤️ Urvashi - Our Love Story</title>
+
+    <!-- DNS Prefetch for fast font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Particle Hearts Canvas -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- Rose Petals -->
+    <div class="rose-petals" id="rosePetals"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-heart">
+            <svg viewBox="0 0 100 100" class="heart-svg">
+                <path d="M50 88 C25 65 5 50 5 30 C5 15 15 5 30 5 C40 5 48 12 50 18 C52 12 60 5 70 5 C85 5 95 15 95 30 C95 50 75 65 50 88Z" 
+                fill="none" stroke="#ff4081" stroke-width="2" class="heart-path"/>
+            </svg>
+            <p class="loading-text">Loading Our Love Story...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-heart">❤️</span>
+            <span class="logo-text">S & U</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="husband.html">Sanket</a></li>
+            <li><a href="wife.html">Urvashi</a></li>
+            <li><a href="memories.html">Memories</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Love Theme -->
+    <section class="hero" id="hero">
+        <!-- Animated Love Ring -->
+        <div class="love-ring">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <!-- Beating Heart -->
+            <div class="beating-heart-container">
+                <div class="beating-heart">❤️</div>
+            </div>
+
+            <h3 class="pre-title fade-in">~ Celebrating Our Love ~</h3>
+            <h1 class="main-title fade-in">
+                <span class="name-sanket">Sanket</span>
+                <span class="love-symbol">
+                    <svg viewBox="0 0 100 100" class="love-svg">
+                        <path d="M50 88 C25 65 5 50 5 30 C5 15 15 5 30 5 C40 5 48 12 50 18 C52 12 60 5 70 5 C85 5 95 15 95 30 C95 50 75 65 50 88Z" 
+                        fill="#ff4081" class="love-path"/>
+                    </svg>
+                </span>
+                <span class="name-urvashi">Urvashi</span>
+            </h1>
+
+            <div class="anniversary-badge fade-in">
+                <div class="badge-ring"></div>
+                <div class="badge-content">
+                    <span class="badge-text">Happy</span>
+                    <span class="badge-year">Anniversary</span>
+                    <span class="badge-date">23 • 12 • 2026</span>
+                </div>
+            </div>
+
+            <p class="love-quote fade-in">
+                "I Love You - Yesterday, Today, Tomorrow & Forever"
+            </p>
+
+            <!-- First Meet Section -->
+            <div class="first-meet fade-in">
+                <div class="meet-icon">💫</div>
+                <p class="meet-text">First Met on <span class="meet-date">5th March 2019</span></p>
+                <p class="meet-since" id="meetSince"></p>
+            </div>
+
+            <!-- Couple Photo with Heart Frame -->
+            <div class="heart-frame fade-in">
+                <div class="heart-shape">
+                    <img src="https://via.placeholder.com/400x400?text=S+%26+U" alt="Sanket & Urvashi" id="coupleImg">
+                </div>
+            </div>
+
+            <!-- Love Meter -->
+            <div class="love-meter fade-in">
+                <h3>💕 Our Love Meter 💕</h3>
+                <div class="meter-bar">
+                    <div class="meter-fill" id="loveMeter"></div>
+                </div>
+                <p class="meter-text">∞ Infinite Love ∞</p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons fade-in">
+                <a href="husband.html" class="btn btn-primary">
+                    <span>💙 Meet Sanket</span>
+                </a>
+                <a href="wife.html" class="btn btn-secondary">
+                    <span>💖 Meet Urvashi</span>
+                </a>
+                <a href="memories.html" class="btn btn-tertiary">
+                    <span>📸 Our Memories</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section" id="countdownSection">
+        <div class="section-header">
+            <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart">❤️</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-title fade-in">Anniversary Countdown</h2>
+        </div>
+
+        <div class="countdown-container fade-in">
+            <div class="countdown-card">
+                <div class="flip-card">
+                    <span id="days">00</span>
+                </div>
+                <p>Days</p>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-card">
+                <div class="flip-card">
+                    <span id="hours">00</span>
+                </div>
+                <p>Hours</p>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-card">
+                <div class="flip-card">
+                    <span id="minutes">00</span>
+                </div>
+                <p>Minutes</p>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-card">
+                <div class="flip-card">
+                    <span id="seconds">00</span>
+                </div>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <!-- Dynamic Status Message -->
+        <div class="countdown-status fade-in" id="countdownStatus"></div>
+    </section>
+
+    <!-- Together Since Section -->
+    <section class="together-section" id="togetherSection">
+        <div class="section-header">
+            <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart">💕</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-title fade-in">Together Since 5th March 2019</h2>
+        </div>
+
+        <div class="together-counter fade-in">
+            <div class="together-card">
+                <span class="together-value" id="togetherYears">0</span>
+                <p>Years</p>
+            </div>
+            <div class="together-card">
+                <span class="together-value" id="togetherMonths">0</span>
+                <p>Months</p>
+            </div>
+            <div class="together-card">
+                <span class="together-value" id="togetherDays">0</span>
+                <p>Days</p>
+            </div>
+            <div class="together-card">
+                <span class="together-value" id="togetherHours">0</span>
+                <p>Hours</p>
+            </div>
+        </div>
+
+        <div class="together-stats fade-in">
+            <div class="stat-item">
+                <span class="stat-number" id="totalDays">0</span>
+                <p>Total Days Together</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalHeartbeats">0</span>
+                <p>Heartbeats For You ❤️</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalKisses">0</span>
+                <p>Kisses Shared 💋</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Section -->
+    <section class="love-story-section" id="loveStory">
+        <div class="section-header">
+            <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart">💕</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-title fade-in">Our Love Story</h2>
+        </div>
+
+        <div class="story-cards">
+            <div class="story-card fade-in">
+                <div class="card-icon">💫</div>
+                <h3>When We Met - 5th March 2019</h3>
+                <p>The stars aligned on 5th March 2019 and brought two hearts together. It was destiny that we found each other. That day changed our lives forever! ❤️</p>
+            </div>
+            <div class="story-card fade-in">
+                <div class="card-icon">💍</div>
+                <h3>We Said "I Do"</h3>
+                <p>The most magical day when we promised to love each other forever and always.</p>
+            </div>
+            <div class="story-card fade-in">
+                <div class="card-icon">🏠</div>
+                <h3>Building Our Home</h3>
+                <p>Together we built not just a house, but a home filled with love, laughter, and happiness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Promises Section -->
+    <section class="promises-section" id="promises">
+        <div class="section-header">
+            <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart">💌</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-title fade-in">My Promises To You</h2>
+        </div>
+
+        <div class="promises-container fade-in">
+            <div class="promise-item">
+                <span class="promise-number">01</span>
+                <p>I promise to love you unconditionally, every single day.</p>
+            </div>
+            <div class="promise-item">
+                <span class="promise-number">02</span>
+                <p>I promise to be your strength when you feel weak.</p>
+            </div>
+            <div class="promise-item">
+                <span class="promise-number">03</span>
+                <p>I promise to make you smile, even on your worst days.</p>
+            </div>
+            <div class="promise-item">
+                <span class="promise-number">04</span>
+                <p>I promise to stand by your side, in joy and sorrow.</p>
+            </div>
+            <div class="promise-item">
+                <span class="promise-number">05</span>
+                <p>I promise to love you more with each passing moment. ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Toggle -->
+    <div class="music-toggle" id="musicToggle">
+        <span>🎵</span>
+    </div>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <span>❤️</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-hearts">
+            <span>❤️</span><span>💕</span><span>💖</span><span>💗</span><span>💘</span>
+        </div>
+        <p class="footer-text">Made with ❤️ by Sanket for his Queen Urvashi</p>
+        <p class="footer-sub">Together Since 5th March 2019 • Forever & Always 💕</p>
+        <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- Music Player -->
+<div class="music-player" id="musicPlayer">
+    <div class="music-info">
+        <div class="music-icon" id="musicIcon">🎵</div>
+        <div class="music-details">
+            <p class="music-title" id="musicTitle">Our Love Song</p>
+            <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
+        </div>
+    </div>
+    <div class="music-controls">
+        <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
+        <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
+        <button class="music-btn" id="nextBtn" title="Next">⏭</button>
+    </div>
+    <div class="music-progress-container">
+        <span class="music-time" id="currentTime">0:00</span>
+        <div class="music-progress" id="musicProgress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="music-time" id="totalTime">0:00</span>
+    </div>
+    <div class="music-volume">
+        <span>🔈</span>
+        <input type="range" id="volumeSlider" 
+               min="0" max="100" value="50" 
+               class="volume-slider">
+        <span>🔊</span>
+    </div>
+</div>
+
+<!-- Audio Element -->
+<audio id="bgMusic" preload="none">
+    <!-- ✅ Add your music files here -->
+    <source src="music/song1.mp3" type="audio/mpeg">
+    <source src="music/song1.ogg" type="audio/ogg">
+</audio>
+</body>
+</html>

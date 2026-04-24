@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beautiful Memories - Sanket & Urvashi</title>
+
+     <!-- DNS Prefetch for fast font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/memories.css">
+</head>
+<body>
+    <div class="stars-bg" id="starsBg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-heart">📸</span>
+            <span class="logo-text">Memories</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="husband.html">Sanket</a></li>
+            <li><a href="wife.html">Urvashi</a></li>
+            <li><a href="memories.html" class="active">Memories</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="memories-hero">
+        <div class="hero-content">
+            <div class="hero-icon">📸</div>
+            <h1 class="hero-title">Our Beautiful Memories</h1>
+            <p class="hero-sub">Every moment with you is a treasure worth keeping ❤️</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span>💫</span>
+                    <p>First Met</p>
+                    <strong>5th March 2019</strong>
+                </div>
+                <div class="hero-stat">
+                    <span>❤️</span>
+                    <p>Together Since</p>
+                    <strong id="heroTogether">Loading...</strong>
+                </div>
+                <div class="hero-stat">
+                    <span>🎉</span>
+                    <p>Anniversary</p>
+                    <strong>23 Dec 2026</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="heart-divider">
+                    <span class="line purple-line"></span>
+                    <span class="heart">📷</span>
+                    <span class="line purple-line"></span>
+                </div>
+                <h2 class="section-title purple-title">Photo Gallery</h2>
+                <p class="section-sub">Click on any photo to view it ❤️</p>
+            </div>
+
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All ❤️</button>
+                <button class="filter-btn" data-filter="love">Love 💕</button>
+                <button class="filter-btn" data-filter="trips">Trips ✈️</button>
+                <button class="filter-btn" data-filter="special">Special 🎉</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item fade-in" data-category="love">
+                    <img src="https://via.placeholder.com/400x300?text=Our+First+Date" alt="Our First Date">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>❤️ Our First Date</h3>
+                            <p>The day it all began...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-category="special">
+                    <img src="https://via.placeholder.com/400x300?text=Wedding+Day" alt="Wedding Day">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>💒 Our Wedding Day</h3>
+                            <p>The most beautiful day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-category="trips">
+                    <img src="https://via.placeholder.com/400x300?text=First+Trip" alt="First Trip">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>✈️ Our First Trip</h3>
+                            <p>Adventures together</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-category="special">
+                    <img src="https://via.placeholder.com/400x300?text=Festival" alt="Festival">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>🎉 Festival Together</h3>
+                            <p>Celebrating love</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-category="love">
+                    <img src="https://via.placeholder.com/400x300?text=Special+Moment" alt="Special Moment">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>💕 Special Moments</h3>
+                            <p>Moments to remember</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-category="love">
+                    <img src="https://via.placeholder.com/400x300?text=Together+Forever" alt="Together Forever">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>❤️ Together Forever</h3>
+                            <p>And many more to come...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="heart-divider">
+                    <span class="line purple-line"></span>
+                    <span class="heart">💕</span>
+                    <span class="line purple-line"></span>
+                </div>
+                <h2 class="section-title purple-title">Our Love Timeline</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <!-- First Meet -->
+                <div class="timeline-item left fade-in">
+                    <div class="timeline-dot">💫</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">5th March 2019</span>
+                        <h3>💫 We First Met</h3>
+                        <p>The most beautiful day when destiny brought Sanket and Urvashi together. This was the beginning of our forever! ❤️</p>
+                    </div>
+                </div>
+
+                <!-- Falling in Love -->
+                <div class="timeline-item right fade-in">
+                    <div class="timeline-dot">💕</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 - 2020</span>
+                        <h3>💕 We Fell In Love</h3>
+                        <p>Every moment spent together made our hearts grow fonder. Love blossomed beautifully between us.</p>
+                    </div>
+                </div>
+
+                <!-- Wedding -->
+                <div class="timeline-item left fade-in">
+                    <div class="timeline-dot">💍</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">The Promise</span>
+                        <h3>💍 We Got Married</h3>
+                        <p>The most beautiful day of our lives - when we became one forever. We said "I Do" with all our hearts!</p>
+                    </div>
+                </div>
+
+                <!-- Our Home -->
+                <div class="timeline-item right fade-in">
+                    <div class="timeline-dot">🏠</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Our Life</span>
+                        <h3>🏠 Our Home</h3>
+                        <p>Building our dream home together with love, laughter, and happiness. Our little paradise!</p>
+                    </div>
+                </div>
+
+                <!-- Anniversary -->
+                <div class="timeline-item left fade-in">
+                    <div class="timeline-dot">🎉</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">23 Dec 2026</span>
+                        <h3>🎉 Our Anniversary!</h3>
+                        <p>Celebrating our beautiful journey of love! Here's to many more years of happiness! ❤️</p>
+                    </div>
+                </div>
+
+                <!-- Forever -->
+                <div class="timeline-item right fade-in">
+                    <div class="timeline-dot">∞</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Forever & Always</span>
+                        <h3>❤️ Till Infinity</h3>
+                        <p>Our love story has no ending. It continues to grow stronger, deeper, and more beautiful every single day!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Stats Section -->
+    <section class="love-stats-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="heart-divider">
+                    <span class="line purple-line"></span>
+                    <span class="heart">💜</span>
+                    <span class="line purple-line"></span>
+                </div>
+                <h2 class="section-title purple-title">Our Love In Numbers</h2>
+            </div>
+
+            <div class="love-stats-grid fade-in">
+                <div class="love-stat-card">
+                    <div class="stat-icon">📅</div>
+                    <span class="stat-value" id="memTotalDays">0</span>
+                    <p>Days Together</p>
+                </div>
+                <div class="love-stat-card">
+                    <div class="stat-icon">❤️</div>
+                    <span class="stat-value" id="memHeartbeats">0</span>
+                    <p>Heartbeats For You</p>
+                </div>
+                <div class="love-stat-card">
+                    <div class="stat-icon">💋</div>
+                    <span class="stat-value" id="memKisses">0</span>
+                    <p>Kisses Shared</p>
+                </div>
+                <div class="love-stat-card">
+                    <div class="stat-icon">🌙</div>
+                    <span class="stat-value" id="memNights">0</span>
+                    <p>Nights Dreaming Of You</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message -->
+    <section class="final-message-section">
+        <div class="container">
+            <div class="final-message fade-in">
+                <div class="big-heart">❤️</div>
+                <h2>Happy Anniversary!</h2>
+                <h3>Sanket ❤️ Urvashi</h3>
+                <p>"Thank you for every beautiful memory we have created together. I look forward to creating a million more with you. You are my past, my present, and my future. I love you forever!"</p>
+                <p class="final-signature">~ Sanket 💕</p>
+                <div class="final-buttons">
+                    <a href="index.html" class="btn btn-primary">Back to Home ❤️</a>
+                    <a href="husband.html" class="btn btn-secondary">Meet Sanket 💙</a>
+                    <a href="wife.html" class="btn btn-tertiary">Meet Urvashi 💖</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <span>❤️</span>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-hearts">
+            <span>💜</span><span>💕</span><span>❤️</span><span>💕</span><span>💜</span>
+        </div>
+        <p class="footer-text">Made with ❤️ by Sanket for his Queen Urvashi</p>
+        <p class="footer-sub">Together Since 5th March 2019 • Forever & Always 💕</p>
+        <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/memories.js"></script>
+
+    <!-- Music Player -->
+<div class="music-player" id="musicPlayer">
+    <div class="music-info">
+        <div class="music-icon" id="musicIcon">🎵</div>
+        <div class="music-details">
+            <p class="music-title" id="musicTitle">Our Love Song</p>
+            <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
+        </div>
+    </div>
+    <div class="music-controls">
+        <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
+        <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
+        <button class="music-btn" id="nextBtn" title="Next">⏭</button>
+    </div>
+    <div class="music-progress-container">
+        <span class="music-time" id="currentTime">0:00</span>
+        <div class="music-progress" id="musicProgress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="music-time" id="totalTime">0:00</span>
+    </div>
+    <div class="music-volume">
+        <span>🔈</span>
+        <input type="range" id="volumeSlider" 
+               min="0" max="100" value="50" 
+               class="volume-slider">
+        <span>🔊</span>
+    </div>
+</div>
+
+<!-- Audio Element -->
+<audio id="bgMusic" preload="none">
+    <!-- ✅ Add your music files here -->
+    <source src="music/song1.mp3" type="audio/mpeg">
+    <source src="music/song1.ogg" type="audio/ogg">
+</audio>
+
+</body>
+</html>
