@@ -78,7 +78,7 @@ function setupHeroStatsAnimation() {
     });
 }
 
-// ===== Letter Reveal - Fixed =====
+// ===== Letter Reveal =====
 function setupLetterReveal() {
     const letterBody   = document.querySelector('.letter-body');
     const letterHeader = document.querySelector('.letter-header');
@@ -88,7 +88,7 @@ function setupLetterReveal() {
 
     const paras = letterBody.querySelectorAll('p');
 
-    // ✅ Fix: Set initial styles BEFORE observing (prevents flash)
+    // ✅ Set initial styles BEFORE observing (prevents flash)
     paras.forEach(p => {
         p.style.opacity = '0';
         p.style.transform = 'translateY(15px)';
@@ -110,7 +110,8 @@ function setupLetterReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Animate header first
+
+                // Animate header first
                 if (letterHeader) {
                     setTimeout(() => {
                         letterHeader.style.opacity = '1';
@@ -118,7 +119,7 @@ function setupLetterReveal() {
                     }, 100);
                 }
 
-                // ✅ Animate paragraphs with stagger
+                // Animate paragraphs with stagger
                 paras.forEach((p, i) => {
                     setTimeout(() => {
                         p.style.opacity = '1';
@@ -126,7 +127,7 @@ function setupLetterReveal() {
                     }, 300 + (i * 300));
                 });
 
-                // ✅ Animate footer after all paragraphs
+                // Animate footer after all paragraphs
                 if (letterFooter) {
                     setTimeout(() => {
                         letterFooter.style.opacity = '1';
@@ -147,7 +148,6 @@ function setupAboutCardsAnimation() {
     const cards = document.querySelectorAll('.about-card');
     if (!cards.length) return;
 
-    // ✅ Set initial styles before observing
     cards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(25px)';
@@ -157,7 +157,6 @@ function setupAboutCardsAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Correct index from NodeList
                 const index = Array.from(cards).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -203,7 +202,6 @@ function setupLoveItemsAnimation() {
     const items = document.querySelectorAll('.love-item');
     if (!items.length) return;
 
-    // ✅ Set initial styles before observing
     items.forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'translateX(-25px)';
@@ -213,7 +211,6 @@ function setupLoveItemsAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Correct index from NodeList
                 const index = Array.from(items).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -290,20 +287,6 @@ function setupLoveItemHover() {
     });
 }
 
-// ===== Scroll to Top =====
-function setupScrollTop() {
-    const btn = document.getElementById('scrollTop');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
 // ============================================
 // ===== INITIALIZE =====
 // ============================================
@@ -324,6 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLoveItemHover();
     setupPromiseAnimation();
 
-    // UI
-    setupScrollTop();
+    // ✅ REMOVED: setupScrollTop() - now in common.js
+    // ✅ REMOVED: setupMusic() - now in music.js
 });

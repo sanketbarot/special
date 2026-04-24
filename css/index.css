@@ -1,10 +1,19 @@
-/* ===== Google Fonts ===== */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* ===== Music Player Theme - Pink ===== */
+:root {
+    --music-color:    rgba(255, 64, 129, 0.25);
+    --music-text:     #ff80ab;
+    --music-gradient: linear-gradient(45deg, #ff4081, #e040fb);
+    --music-progress: linear-gradient(90deg, #ff4081, #e040fb);
+    --music-shadow:   rgba(255, 64, 129, 0.4);
+    --music-thumb:    #ff4081;
+    --music-hover:    #ff4081;
+}
 
 /* ===== Index Page Background ===== */
 body {
     background: linear-gradient(135deg, #0a0000, #1a0008, #0d0011, #0a0a1a);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ===== Heart Canvas ===== */
@@ -33,32 +42,17 @@ body {
 .petal {
     position: absolute;
     top: -50px;
-    width: 15px;
-    height: 15px;
     background: radial-gradient(circle, #ff4081, #ff1744);
     border-radius: 50% 0 50% 50%;
-    opacity: 0.6;
     animation: petalFall linear infinite;
 }
 
 @keyframes petalFall {
-    0% {
-        transform: translateY(-10vh) rotate(0deg) translateX(0);
-        opacity: 0.7;
-    }
-    25% {
-        transform: translateY(25vh) rotate(90deg) translateX(30px);
-    }
-    50% {
-        transform: translateY(50vh) rotate(180deg) translateX(-20px);
-    }
-    75% {
-        transform: translateY(75vh) rotate(270deg) translateX(25px);
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg) translateX(-10px);
-        opacity: 0;
-    }
+    0%   { transform: translateY(-10vh) rotate(0deg) translateX(0);    opacity: 0.7; }
+    25%  { transform: translateY(25vh) rotate(90deg) translateX(30px); }
+    50%  { transform: translateY(50vh) rotate(180deg) translateX(-20px); }
+    75%  { transform: translateY(75vh) rotate(270deg) translateX(25px); }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(-10px); opacity: 0; }
 }
 
 /* ===== Loading Screen ===== */
@@ -73,12 +67,12 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .loading-screen.hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .loading-heart {
@@ -114,7 +108,7 @@ body {
 
 @keyframes fadeInOut {
     0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    50%       { opacity: 1; }
 }
 
 /* ===== Hero Section ===== */
@@ -127,6 +121,7 @@ body {
     padding: 100px 20px 50px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 /* ===== Love Rings ===== */
@@ -135,6 +130,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .ring {
@@ -167,8 +166,8 @@ body {
 }
 
 @keyframes ringPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.5; }
+    50%       { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
 }
 
 /* ===== Hero Content ===== */
@@ -176,6 +175,7 @@ body {
     max-width: 900px;
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 /* ===== Beating Heart ===== */
@@ -237,7 +237,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
 }
 
 .name-urvashi {
@@ -245,7 +244,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
 }
 
 .love-symbol {
@@ -306,7 +304,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
 }
 
 .badge-text {
@@ -347,7 +344,6 @@ body {
     border: 2px solid rgba(255, 64, 129, 0.2);
     border-radius: 20px;
     display: inline-block;
-    backdrop-filter: blur(10px);
     opacity: 0;
     animation: zoomIn 1s ease 1.4s forwards;
     position: relative;
@@ -414,7 +410,6 @@ body {
     position: relative;
     overflow: hidden;
     clip-path: path('M140 240 C70 195 0 155 0 90 C0 40 35 10 75 10 C105 10 130 30 140 55 C150 30 175 10 205 10 C245 10 280 40 280 90 C280 155 210 195 140 240Z');
-    border: none;
     filter: drop-shadow(0 0 30px rgba(255, 64, 129, 0.5));
     animation: photoFloat 3s ease-in-out infinite;
 }
@@ -460,12 +455,9 @@ body {
     background: linear-gradient(90deg, #ff4081, #e040fb, #7b68ee, #ff4081);
     background-size: 300% 100%;
     border-radius: 50px;
-    animation: meterFill 3s ease 2.5s forwards, meterGlow 3s ease infinite;
+    animation: meterGlow 3s ease infinite;
     box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
-}
-
-@keyframes meterFill {
-    to { width: 100%; }
+    transition: width 2.5s ease;
 }
 
 @keyframes meterGlow {
@@ -498,6 +490,7 @@ body {
     z-index: 1;
     background: linear-gradient(180deg, transparent, rgba(255, 64, 129, 0.03), transparent);
     text-align: center;
+    overflow: hidden;
 }
 
 .countdown-container {
@@ -518,8 +511,7 @@ body {
     border-radius: 20px;
     padding: 25px 30px;
     min-width: 110px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -529,7 +521,6 @@ body {
     box-shadow: 0 15px 50px rgba(255, 64, 129, 0.3);
 }
 
-/* ===== Flip Animation ===== */
 .flip-card span {
     font-size: 3.5rem;
     font-weight: 700;
@@ -581,12 +572,6 @@ body {
     border-radius: 50px;
     display: inline-block;
     max-width: 600px;
-    animation: statusGlow 3s ease-in-out infinite;
-}
-
-@keyframes statusGlow {
-    0%, 100% { box-shadow: 0 0 10px rgba(255, 64, 129, 0.1); }
-    50%       { box-shadow: 0 0 25px rgba(255, 64, 129, 0.2); }
 }
 
 /* ===== Together Since Section ===== */
@@ -596,6 +581,7 @@ body {
     z-index: 1;
     background: linear-gradient(180deg, transparent, rgba(224, 64, 251, 0.03), transparent);
     text-align: center;
+    overflow: hidden;
 }
 
 .together-counter {
@@ -612,7 +598,6 @@ body {
     border-radius: 20px;
     padding: 25px 30px;
     min-width: 120px;
-    backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-align: center;
@@ -646,7 +631,7 @@ body {
 .together-stats {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     max-width: 900px;
     margin: 0 auto;
@@ -687,11 +672,12 @@ body {
     padding: 100px 20px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 .story-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
@@ -703,7 +689,6 @@ body {
     border-radius: 25px;
     padding: 40px 30px;
     text-align: center;
-    backdrop-filter: blur(10px);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -753,6 +738,7 @@ body {
     position: relative;
     z-index: 1;
     background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.3), transparent);
+    overflow: hidden;
 }
 
 .promises-container {
@@ -793,200 +779,42 @@ body {
     padding-top: 5px;
 }
 
-/* ===== Music Toggle ===== */
-.music-toggle {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #ff4081, #e040fb);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4);
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-}
-
-.music-toggle:hover {
-    transform: scale(1.1);
-}
-
-.music-toggle.playing {
-    animation: musicPulse 1s ease-in-out infinite;
-}
-
-@keyframes musicPulse {
-    0%, 100% { box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4); }
-    50%       { box-shadow: 0 5px 40px rgba(255, 64, 129, 0.8); }
-}
-
-/* ===== Scroll to Top ===== */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #ff4081, #e040fb);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4);
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.scroll-top:hover {
-    transform: scale(1.1) translateY(-3px);
-}
-
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem;
-    }
-
-    .love-svg {
-        width: 40px;
-        height: 40px;
-    }
-
-    .badge-content {
-        width: 160px;
-        height: 160px;
-    }
-
-    .badge-year {
-        font-size: 1.4rem;
-    }
-
-    .heart-frame {
-        width: 240px;
-        height: 230px;
-    }
-
-    .heart-shape {
-        width: 210px;
-        height: 200px;
+    .main-title           { font-size: 3rem; }
+    .love-svg             { width: 40px; height: 40px; }
+    .badge-content        { width: 160px; height: 160px; }
+    .badge-year           { font-size: 1.4rem; }
+    .heart-frame          { width: 240px; height: 230px; }
+    .heart-shape          { width: 210px; height: 200px;
         clip-path: path('M105 180 C52 146 0 116 0 68 C0 30 26 8 56 8 C79 8 98 23 105 42 C112 23 131 8 154 8 C184 8 210 30 210 68 C210 116 158 146 105 180Z');
     }
-
-    .countdown-separator {
-        font-size: 2rem;
-    }
-
-    .flip-card {
-        padding: 20px 25px;
-        min-width: 80px;
-    }
-
-    .flip-card span {
-        font-size: 2.5rem;
-    }
-
-    .ring-1 { width: 250px; height: 250px; }
-    .ring-2 { width: 350px; height: 350px; }
-    .ring-3 { width: 450px; height: 450px; }
-
-    .love-quote {
-        font-size: 1.4rem;
-    }
-
-    .story-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .countdown-status {
-        font-size: 1.2rem;
-        padding: 12px 20px;
-        max-width: 90%;
-    }
-
-    .first-meet {
-        padding: 20px 25px;
-    }
-
-    .meet-date {
-        font-size: 1.3rem;
-    }
-
-    .together-counter {
-        gap: 15px;
-    }
-
-    .together-card {
-        padding: 20px 25px;
-        min-width: 100px;
-    }
-
-    .together-value {
-        font-size: 2.2rem;
-    }
-
-    .together-stats {
-        gap: 15px;
-    }
-
-    .stat-item {
-        padding: 20px;
-        min-width: 150px;
-    }
-
-    .stat-number {
-        font-size: 1.8rem;
-    }
+    .countdown-separator  { font-size: 2rem; }
+    .flip-card            { padding: 20px 25px; min-width: 80px; }
+    .flip-card span       { font-size: 2.5rem; }
+    .ring-1               { width: 250px; height: 250px; }
+    .ring-2               { width: 350px; height: 350px; }
+    .ring-3               { width: 450px; height: 450px; }
+    .love-quote           { font-size: 1.4rem; }
+    .story-cards          { grid-template-columns: 1fr; }
+    .cta-buttons          { flex-direction: column; align-items: center; }
+    .countdown-status     { font-size: 1.2rem; padding: 12px 20px; max-width: 90%; }
+    .first-meet           { padding: 20px 25px; }
+    .meet-date            { font-size: 1.3rem; }
+    .together-counter     { gap: 15px; }
+    .together-card        { padding: 20px 25px; min-width: 100px; }
+    .together-value       { font-size: 2.2rem; }
+    .together-stats       { gap: 15px; }
+    .stat-item            { padding: 20px; min-width: 150px; }
+    .stat-number          { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
-    .main-title {
-        font-size: 2.5rem;
-    }
-
-    .pre-title {
-        font-size: 1.3rem;
-    }
-
-    .beating-heart {
-        font-size: 3rem;
-    }
-
-    .countdown-status {
-        font-size: 1rem;
-        padding: 10px 15px;
-    }
-
-    .together-card {
-        min-width: 80px;
-        padding: 15px 20px;
-    }
-
-    .together-value {
-        font-size: 1.8rem;
-    }
-
-    .stat-item {
-        min-width: 100%;
-    }
+    .main-title           { font-size: 2.5rem; }
+    .pre-title            { font-size: 1.3rem; }
+    .beating-heart        { font-size: 3rem; }
+    .countdown-status     { font-size: 1rem; padding: 10px 15px; }
+    .together-card        { min-width: 80px; padding: 15px 20px; }
+    .together-value       { font-size: 1.8rem; }
+    .stat-item            { min-width: 100%; }
 }

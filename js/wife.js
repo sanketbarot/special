@@ -32,7 +32,7 @@ function createSparkles() {
     container.appendChild(fragment);
 }
 
-// ===== Floating Roses - Fixed =====
+// ===== Floating Roses =====
 function createFloatingRoses() {
     const container = document.getElementById('floatingRoses');
     if (!container || window.innerWidth < 768) return;
@@ -72,7 +72,7 @@ function createFloatingRoses() {
         intervalId = null;
     }
 
-    // ✅ Fix: Restart roses when tab becomes visible
+    // ✅ Restart roses when tab becomes visible
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             stopRoses();
@@ -129,8 +129,8 @@ function setupProfileFloat() {
 
     function float() {
         y += 0.04 * dir;
-        if (y >= 8)  dir = -1;
-        if (y <= 0)  dir = 1;
+        if (y >= 8) dir = -1;
+        if (y <= 0) dir = 1;
         frame.style.transform = `translateY(${y}px)`;
         floatId = requestAnimationFrame(float);
     }
@@ -153,10 +153,15 @@ function setupQueenCardsAnimation() {
     const cards = document.querySelectorAll('.queen-card');
     if (!cards.length) return;
 
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(25px) scale(0.95)';
+        card.style.transition = 'all 0.5s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Get index from cards NodeList not entries
                 const index = Array.from(cards).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -167,12 +172,7 @@ function setupQueenCardsAnimation() {
         });
     }, { threshold: 0.1 });
 
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(25px) scale(0.95)';
-        card.style.transition = 'all 0.5s ease';
-        observer.observe(card);
-    });
+    cards.forEach(card => observer.observe(card));
 }
 
 // ===== Queen Cards Hover Effect =====
@@ -202,10 +202,15 @@ function setupWhyLoveAnimation() {
     const items = document.querySelectorAll('.why-item');
     if (!items.length) return;
 
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-25px)';
+        item.style.transition = 'all 0.5s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Correct index from NodeList
                 const index = Array.from(items).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -216,15 +221,10 @@ function setupWhyLoveAnimation() {
         });
     }, { threshold: 0.1 });
 
-    items.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-25px)';
-        item.style.transition = 'all 0.5s ease';
-        observer.observe(item);
-    });
+    items.forEach(item => observer.observe(item));
 }
 
-// ===== Poem Animation - Fixed =====
+// ===== Poem Animation =====
 function setupPoemAnimation() {
     const poemCard = document.querySelector('.poem-card');
     if (!poemCard) return;
@@ -232,7 +232,7 @@ function setupPoemAnimation() {
     const lines = poemCard.querySelectorAll('.poem-line');
     if (!lines.length) return;
 
-    // ✅ Fix: Set initial styles BEFORE observing (no flash)
+    // ✅ Set initial styles BEFORE observing (no flash)
     lines.forEach(line => {
         line.style.opacity = '0';
         line.style.transform = 'translateX(-20px)';
@@ -277,7 +277,7 @@ function setupMessageAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Animate envelope
+                // Animate envelope top
                 const envTop = card.querySelector('.envelope-top');
                 if (envTop) {
                     envTop.style.opacity = '0';
@@ -327,7 +327,7 @@ function setupTraitsAnimation() {
     const traits = document.querySelectorAll('.trait-item');
     if (!traits.length) return;
 
-    // ✅ Fix: Set initial styles before observing
+    // ✅ Set initial styles before observing
     traits.forEach(trait => {
         trait.style.opacity = '0';
         trait.style.transform = 'scale(0.85) translateY(15px)';
@@ -337,7 +337,6 @@ function setupTraitsAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Get correct index from NodeList
                 const index = Array.from(traits).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -351,51 +350,6 @@ function setupTraitsAnimation() {
     traits.forEach(trait => observer.observe(trait));
 }
 
-// ===== Cards Animation - Fixed =====
-function setupCardsAnimation() {
-    const items = document.querySelectorAll(
-        '.queen-card, .why-item, .trait-item'
-    );
-    if (!items.length) return;
-
-    // ✅ Fix: Set initial styles before observing
-    items.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px) scale(0.97)';
-        item.style.transition = 'all 0.45s ease';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // ✅ Fix: Get correct index from items NodeList
-                const index = Array.from(items).indexOf(entry.target);
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, index * 80);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.08 });
-
-    items.forEach(item => observer.observe(item));
-}
-
-// ===== Scroll to Top =====
-function setupScrollTop() {
-    const btn = document.getElementById('scrollTop');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
 // ============================================
 // ===== INITIALIZE =====
 // ============================================
@@ -404,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createSparkles();
     createFloatingRoses();
 
-    // Hero animations (delayed for visual effect)
+    // Hero animations
     setupHeroStatsAnimation();
     setupTagsAnimation();
     setupProfileFloat();
@@ -417,10 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMessageAnimation();
     setupTraitsAnimation();
 
-    // Note: setupCardsAnimation covers queen-card, why-item, trait-item
-    // Run it OR the individual ones above - not both
-    // setupCardsAnimation(); // ← commented out to avoid duplicate
-
-    // UI
-    setupScrollTop();
+    // ✅ REMOVED: setupScrollTop() - now in common.js
+    // ✅ REMOVED: setupCardsAnimation() - replaced by individual functions above
+    // ✅ REMOVED: setupMusic() - now in music.js
 });

@@ -9,11 +9,7 @@ function setupHamburger() {
     const navLinks  = document.getElementById('navLinks');
     if (!hamburger || !navLinks) return;
 
-    // ✅ Track scroll position to restore after menu close
-    let scrollPos = 0;
-
     function openMenu() {
-        scrollPos = window.scrollY;
         hamburger.classList.add('active');
         navLinks.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -51,7 +47,8 @@ function setupHamburger() {
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        if (e.key === 'Escape' &&
+            navLinks.classList.contains('active')) {
             closeMenu();
         }
     });
@@ -65,13 +62,12 @@ function setupHamburger() {
 
     navLinks.addEventListener('touchend', (e) => {
         const touchEndX = e.changedTouches[0].clientX;
-        // Swipe left = close menu
         if (touchStartX - touchEndX > 70) {
             closeMenu();
         }
     }, { passive: true });
 
-    // ✅ Handle resize - close menu if window grows to desktop
+    // ✅ Close menu on resize to desktop
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) {
             closeMenu();
@@ -98,7 +94,7 @@ function setupNavbarScroll() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // ✅ Check on load in case page starts scrolled
+    // ✅ Check on load
     handleScroll();
 }
 
@@ -116,9 +112,7 @@ function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Get correct index from NodeList
                 const index = Array.from(elements).indexOf(entry.target);
-                // ✅ Fix: Cap max delay at 500ms
                 const delay = Math.min(index * 100, 500);
 
                 setTimeout(() => {
@@ -136,26 +130,25 @@ function setupScrollAnimations() {
     elements.forEach(el => observer.observe(el));
 }
 
-// ===== Click Hearts - Fixed =====
+// ===== Click Hearts =====
 function setupClickHearts() {
-    // ✅ Only on desktop - skip mobile for performance
+    // ✅ Desktop only
     if (window.innerWidth < 768) return;
 
     const hearts = ['❤️', '💕', '💖', '💗', '💝'];
     let lastClick = 0;
 
     document.addEventListener('click', (e) => {
-        // ✅ Throttle - max one effect per 300ms
         const now = Date.now();
         if (now - lastClick < 300) return;
         lastClick = now;
 
-        // ✅ Skip on interactive elements
         if (
-            e.target.tagName === 'A'      ||
-            e.target.tagName === 'BUTTON' ||
-            e.target.closest('.navbar')   ||
-            e.target.closest('#lightbox') ||
+            e.target.tagName === 'A'       ||
+            e.target.tagName === 'BUTTON'  ||
+            e.target.closest('.navbar')    ||
+            e.target.closest('#lightbox')  ||
+            e.target.closest('.music-player') ||
             e.target.closest('.hamburger')
         ) return;
 
@@ -176,7 +169,6 @@ function setupClickHearts() {
         const dy = -(Math.random() * 60 + 30);
         const dx = (Math.random() - 0.5) * 60;
 
-        // ✅ Fix: Double rAF ensures element is painted before animating
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 heart.style.transition = 'all 0.8s ease-out';
@@ -193,9 +185,8 @@ function setupClickHearts() {
     }, { passive: true });
 }
 
-// ===== Auto Active Nav - Fixed =====
+// ===== Auto Active Nav =====
 function setupActiveNav() {
-    // ✅ Fix: Handle root path '/' and '/index.html'
     let page = window.location.pathname.split('/').pop();
 
     if (!page || page === '') {
@@ -204,13 +195,13 @@ function setupActiveNav() {
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         const href = link.getAttribute('href');
-
-        // ✅ Remove any existing active class first
         link.classList.remove('active');
 
-        if (href === page ||
+        if (
+            href === page ||
             (page === 'index.html' && href === './') ||
-            (page === '' && href === 'index.html')) {
+            (page === '' && href === 'index.html')
+        ) {
             link.classList.add('active');
         }
     });
@@ -226,14 +217,29 @@ function setupSmoothScroll() {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                const navHeight = document.getElementById('navbar')
-                    ?.offsetHeight || 70;
-                const top = target.getBoundingClientRect().top +
+                const navHeight =
+                    document.getElementById('navbar')?.offsetHeight || 70;
+                const top =
+                    target.getBoundingClientRect().top +
                     window.scrollY - navHeight - 10;
 
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         });
+    });
+}
+
+// ===== Scroll to Top - COMMON ===== ✅
+function setupScrollTop() {
+    const btn = document.getElementById('scrollTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
@@ -247,4 +253,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupClickHearts();
     setupActiveNav();
     setupSmoothScroll();
+    setupScrollTop(); // ✅ Works on ALL pages now
 });

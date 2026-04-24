@@ -28,7 +28,7 @@ function createStars() {
     container.appendChild(fragment);
 }
 
-// ===== Hero Together - Fixed =====
+// ===== Hero Together =====
 function updateHeroTogether() {
     const el = document.getElementById('heroTogether');
     if (!el) return;
@@ -36,10 +36,9 @@ function updateHeroTogether() {
     const now = new Date();
 
     let years  = now.getFullYear() - 2019;
-    let months = now.getMonth() - 2; // March = index 2
+    let months = now.getMonth() - 2;
     let days   = now.getDate() - 5;
 
-    // ✅ Fix: Use actual days in previous month
     if (days < 0) {
         months--;
         const prevMonthDays = new Date(
@@ -58,17 +57,16 @@ function updateHeroTogether() {
     el.textContent = `${years}Y ${months}M ${days}D`;
 }
 
-// ===== Love Stats - Fixed =====
+// ===== Love Stats =====
 function startLoveStats() {
     const firstMeet = new Date('March 5, 2019 00:00:00').getTime();
 
-    // ✅ Fix: Cache DOM elements outside update function
+    // ✅ Cache DOM elements outside update
     const el1 = document.getElementById('memTotalDays');
     const el2 = document.getElementById('memHeartbeats');
     const el3 = document.getElementById('memKisses');
     const el4 = document.getElementById('memNights');
 
-    // Skip if no elements found
     if (!el1 && !el2 && !el3 && !el4) return;
 
     function fmt(n) {
@@ -92,19 +90,17 @@ function startLoveStats() {
     }
 
     update();
-    // Update every minute - saves CPU
     setInterval(update, 60000);
 }
 
-// ===== Gallery Filter - With Animation =====
+// ===== Gallery Filter =====
 function setupGalleryFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns   = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
     if (!filterBtns.length || !galleryItems.length) return;
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -116,7 +112,6 @@ function setupGalleryFilter() {
                     item.dataset.category === filter;
 
                 if (show) {
-                    // ✅ Fix: Smooth show animation
                     item.style.display = '';
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.9) translateY(15px)';
@@ -129,7 +124,6 @@ function setupGalleryFilter() {
 
                     visibleIndex++;
                 } else {
-                    // ✅ Fix: Smooth hide animation
                     item.style.transition = 'all 0.3s ease';
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.9)';
@@ -143,12 +137,11 @@ function setupGalleryFilter() {
     });
 }
 
-// ===== Lightbox - Fixed & Enhanced =====
+// ===== Lightbox =====
 function setupLightbox() {
     const items = document.querySelectorAll('.gallery-item');
     if (!items.length) return;
 
-    // Create lightbox
     const lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
     lightbox.style.cssText = `
@@ -164,7 +157,6 @@ function setupLightbox() {
         gap: 15px;
     `;
 
-    // Image
     const img = document.createElement('img');
     img.id = 'lightboxImg';
     img.style.cssText = `
@@ -176,7 +168,6 @@ function setupLightbox() {
         transition: opacity 0.3s ease;
     `;
 
-    // Caption
     const caption = document.createElement('div');
     caption.id = 'lightboxCaption';
     caption.style.cssText = `
@@ -188,7 +179,6 @@ function setupLightbox() {
         padding: 0 20px;
     `;
 
-    // Close button
     const close = document.createElement('span');
     close.id = 'lightboxClose';
     close.textContent = '✕';
@@ -215,7 +205,6 @@ function setupLightbox() {
         close.style.background = 'rgba(156,39,176,0.4)';
     });
 
-    // Loading indicator
     const loader = document.createElement('div');
     loader.style.cssText = `
         color: #ce93d8;
@@ -227,7 +216,6 @@ function setupLightbox() {
     lightbox.append(close, loader, img, caption);
     document.body.appendChild(lightbox);
 
-    // ✅ Fix: Show loader, set src, then show image
     function openLightbox(item) {
         const imgEl = item.querySelector('img');
         const title = item.querySelector('h3')?.textContent || '';
@@ -236,19 +224,18 @@ function setupLightbox() {
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
 
-        // Show loader
         loader.style.display = 'block';
         img.style.opacity = '0';
         caption.textContent = '';
 
-        // Load image
         const tempImg = new Image();
         tempImg.onload = () => {
             img.src = tempImg.src;
             img.style.opacity = '1';
             loader.style.display = 'none';
             caption.innerHTML =
-                `<strong>${title}</strong>${desc ? '<br><small>' + desc + '</small>' : ''}`;
+                `<strong>${title}</strong>${desc ?
+                '<br><small>' + desc + '</small>' : ''}`;
         };
         tempImg.onerror = () => {
             loader.style.display = 'none';
@@ -276,20 +263,21 @@ function setupLightbox() {
     });
 
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        if (e.key === 'Escape' &&
+            lightbox.style.display === 'flex') {
             closeLb();
         }
     });
 }
 
-// ===== Timeline - Fixed =====
+// ===== Timeline =====
 function setupTimeline() {
     const items = document.querySelectorAll('.timeline-item');
     const line  = document.querySelector('.timeline-line');
 
     if (!items.length) return;
 
-    // ✅ Fix: Set initial styles before observing
+    // ✅ Set initial styles before observing
     items.forEach(item => {
         const isLeft = item.classList.contains('left');
         item.style.opacity = '0';
@@ -300,7 +288,6 @@ function setupTimeline() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // ✅ Fix: Get correct index from NodeList
                 const index = Array.from(items).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
@@ -314,7 +301,7 @@ function setupTimeline() {
 
     items.forEach(item => observer.observe(item));
 
-    // ✅ Timeline line animation
+    // Timeline line animation
     if (line) {
         line.style.height = '0%';
 
@@ -335,12 +322,11 @@ function setupTimeline() {
     }
 }
 
-// ===== Gallery Items Scroll Animation =====
+// ===== Gallery Items Animation =====
 function setupGalleryAnimation() {
     const items = document.querySelectorAll('.gallery-item');
     if (!items.length) return;
 
-    // ✅ Set initial styles
     items.forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'scale(0.9) translateY(20px)';
@@ -429,20 +415,6 @@ function setupHeroStatsAnimation() {
     });
 }
 
-// ===== Scroll to Top =====
-function setupScrollTop() {
-    const btn = document.getElementById('scrollTop');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
 // ============================================
 // ===== INITIALIZE =====
 // ============================================
@@ -466,6 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFinalMessageAnimation();
     setupHeroStatsAnimation();
 
-    // UI
-    setupScrollTop();
+    // ✅ REMOVED: setupScrollTop() - now in common.js
+    // ✅ REMOVED: setupMusic() - now in music.js
 });

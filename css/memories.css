@@ -1,12 +1,24 @@
 /* ===== Google Fonts ===== */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* ===== Music Player Theme - Purple ===== */
+:root {
+    --music-color:    rgba(156, 39, 176, 0.25);
+    --music-text:     #ce93d8;
+    --music-gradient: linear-gradient(45deg, #7b1fa2, #9c27b0);
+    --music-progress: linear-gradient(90deg, #7b1fa2, #e040fb);
+    --music-shadow:   rgba(156, 39, 176, 0.4);
+    --music-thumb:    #9c27b0;
+    --music-hover:    #ce93d8;
+}
+
 /* ===== Memories Page Background ===== */
 body {
     background: linear-gradient(135deg, #0d0011, #1a0022, #110033, #0d0011);
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    overflow-x: hidden; /* ✅ Fix */
 }
 
 /* ===== Stars Background ===== */
@@ -99,7 +111,6 @@ body {
     border-radius: 20px;
     padding: 20px 30px;
     text-align: center;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     min-width: 160px;
 }
@@ -130,7 +141,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* ===== Section Header ===== */
+/* ===== Section Sub ===== */
 .section-sub {
     font-family: 'Dancing Script', cursive;
     font-size: 1.2rem;
@@ -175,7 +186,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     transition: left 0.4s ease;
 }
 
@@ -234,7 +245,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.92));
+    background: linear-gradient(transparent 40%, rgba(0,0,0,0.92));
     display: flex;
     align-items: flex-end;
     padding: 25px;
@@ -338,16 +349,11 @@ body {
     transform: scale(1.1);
 }
 
-.timeline-item.left .timeline-dot {
-    right: -22px;
-}
-
-.timeline-item.right .timeline-dot {
-    left: -22px;
-}
+.timeline-item.left .timeline-dot  { right: -22px; }
+.timeline-item.right .timeline-dot { left: -22px; }
 
 .timeline-content {
-    background: linear-gradient(145deg, rgba(156, 39, 176, 0.08), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(145deg, rgba(156, 39, 176, 0.08), rgba(0,0,0,0.5));
     border: 1px solid rgba(156, 39, 176, 0.2);
     border-radius: 20px;
     padding: 25px 30px;
@@ -363,7 +369,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(156, 39, 176, 0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(156,39,176,0.05), transparent);
     transition: left 0.5s ease;
 }
 
@@ -420,13 +426,12 @@ body {
 }
 
 .love-stat-card {
-    background: linear-gradient(145deg, rgba(156, 39, 176, 0.1), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(145deg, rgba(156, 39, 176, 0.1), rgba(0,0,0,0.4));
     border: 2px solid rgba(156, 39, 176, 0.2);
     border-radius: 25px;
     padding: 40px 25px;
     text-align: center;
     transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
 }
@@ -438,7 +443,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(156, 39, 176, 0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(156,39,176,0.05), transparent);
     transition: left 0.6s ease;
 }
 
@@ -486,11 +491,10 @@ body {
     max-width: 750px;
     margin: 0 auto;
     text-align: center;
-    background: linear-gradient(145deg, rgba(156, 39, 176, 0.12), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(145deg, rgba(156, 39, 176, 0.12), rgba(0,0,0,0.6));
     border: 2px solid rgba(156, 39, 176, 0.25);
     border-radius: 30px;
     padding: 60px 40px;
-    backdrop-filter: blur(15px);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
@@ -505,6 +509,7 @@ body {
     height: 200%;
     background: radial-gradient(circle, rgba(156, 39, 176, 0.05), transparent 60%);
     animation: rotateBg 10s linear infinite;
+    pointer-events: none;
 }
 
 @keyframes rotateBg {
@@ -577,38 +582,6 @@ body {
     z-index: 1;
 }
 
-/* ===== Scroll to Top ===== */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #9c27b0, #e040fb);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 5px 20px rgba(156, 39, 176, 0.4);
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.scroll-top:hover {
-    transform: scale(1.1) translateY(-3px);
-}
-
 /* ===== Lightbox ===== */
 #lightbox {
     position: fixed;
@@ -622,7 +595,6 @@ body {
     justify-content: center;
     z-index: 10000;
     cursor: pointer;
-    backdrop-filter: blur(15px);
 }
 
 #lightbox img {
@@ -636,7 +608,7 @@ body {
 
 @keyframes lightboxZoom {
     from { transform: scale(0.8); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
+    to   { transform: scale(1);   opacity: 1; }
 }
 
 #lightboxClose {
@@ -662,28 +634,24 @@ body {
     transform: scale(1.1);
 }
 
+/* ===== Scroll Top - Purple Theme Override ===== */
+/* ✅ Only override - base styles in common.css */
+.scroll-top {
+    background: linear-gradient(45deg, #9c27b0, #e040fb);
+    box-shadow: 0 5px 20px rgba(156, 39, 176, 0.4);
+}
+
+.scroll-top:hover {
+    box-shadow: 0 8px 30px rgba(156, 39, 176, 0.6);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-
-    .hero-stats {
-        gap: 15px;
-    }
-
-    .hero-stat {
-        padding: 15px 20px;
-        min-width: 130px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline-line {
-        left: 25px;
-    }
+    .hero-title        { font-size: 2.8rem; }
+    .hero-stats        { gap: 15px; }
+    .hero-stat         { padding: 15px 20px; min-width: 130px; }
+    .gallery-grid      { grid-template-columns: 1fr; }
+    .timeline-line     { left: 25px; }
 
     .timeline-item {
         width: 100%;
@@ -707,53 +675,18 @@ body {
         right: auto;
     }
 
-    .love-stats-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .final-message {
-        padding: 40px 25px;
-    }
-
-    .final-message h2 {
-        font-size: 2.5rem;
-    }
-
-    .final-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+    .love-stats-grid   { grid-template-columns: 1fr 1fr; }
+    .final-message     { padding: 40px 25px; }
+    .final-message h2  { font-size: 2.5rem; }
+    .final-buttons     { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-stat {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .love-stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-value {
-        font-size: 1.6rem;
-    }
-
-    .gallery-filter {
-        gap: 10px;
-    }
-
-    .filter-btn {
-        padding: 8px 18px;
-        font-size: 0.85rem;
-    }
+    .hero-title        { font-size: 2.2rem; }
+    .hero-stats        { flex-direction: column; align-items: center; }
+    .hero-stat         { width: 100%; max-width: 280px; }
+    .love-stats-grid   { grid-template-columns: 1fr; }
+    .stat-value        { font-size: 1.6rem; }
+    .gallery-filter    { gap: 10px; }
+    .filter-btn        { padding: 8px 18px; font-size: 0.85rem; }
 }

@@ -82,7 +82,7 @@ function initHeartCanvas() {
         });
     }
 
-    // ✅ Fix: Proper pause/resume on visibility change
+    // ✅ Proper pause/resume on visibility change
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             if (animId) {
@@ -148,7 +148,7 @@ function createRosePetals() {
         }, 1500);
     }
 
-    // ✅ Fix: Restart interval when tab becomes visible again
+    // ✅ Restart interval when tab becomes visible again
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             clearInterval(intervalId);
@@ -168,20 +168,16 @@ function setupLoading() {
 
     let hidden = false;
 
-    // ✅ Fix: Flag prevents double call
     const hideLoading = () => {
         if (hidden) return;
         hidden = true;
-
         loading.style.transition = 'opacity 0.5s ease';
         loading.style.opacity = '0';
-
         setTimeout(() => {
             loading.style.display = 'none';
         }, 500);
     };
 
-    // Hide after 2s max
     const timer = setTimeout(hideLoading, 2000);
 
     window.addEventListener('load', () => {
@@ -194,10 +190,10 @@ function setupLoading() {
 function startCountdown() {
     const target = new Date('December 23, 2026 00:00:00').getTime();
 
-    const dEl = document.getElementById('days');
-    const hEl = document.getElementById('hours');
-    const mEl = document.getElementById('minutes');
-    const sEl = document.getElementById('seconds');
+    const dEl    = document.getElementById('days');
+    const hEl    = document.getElementById('hours');
+    const mEl    = document.getElementById('minutes');
+    const sEl    = document.getElementById('seconds');
     const status = document.getElementById('countdownStatus');
 
     if (!dEl) return;
@@ -206,13 +202,11 @@ function startCountdown() {
         return String(n).padStart(2, '0');
     }
 
-    // ✅ Fix: Store interval ID to clear when done
     let countdownInterval;
 
     function update() {
         const diff = target - Date.now();
 
-        // Anniversary reached!
         if (diff <= 0) {
             dEl.textContent = '🎉';
             hEl.textContent = '🥳';
@@ -223,7 +217,6 @@ function startCountdown() {
                 status.style.color = '#ff4081';
                 status.style.fontSize = '1.3rem';
             }
-            // ✅ Fix: Clear interval when done
             clearInterval(countdownInterval);
             launchCelebration();
             return;
@@ -251,9 +244,9 @@ function startCountdown() {
             } else if (d <= 365) {
                 status.textContent = `💖 ${d} days until our special anniversary!`;
             } else {
-                const y = Math.floor(d / 365);
-                const rem = d % 365;
-                const mo = Math.floor(rem / 30);
+                const y    = Math.floor(d / 365);
+                const rem  = d % 365;
+                const mo   = Math.floor(rem / 30);
                 const remD = rem % 30;
                 status.textContent =
                     `💝 ${y} year${y > 1 ? 's' : ''}, ${mo} month${mo > 1 ? 's' : ''} & ${remD} days to go!`;
@@ -319,7 +312,6 @@ function startTogetherCounter() {
     const kEl  = document.getElementById('totalKisses');
     const msEl = document.getElementById('meetSince');
 
-    // ✅ Fix: Use || so function runs if ANY element exists
     if (!yEl && !mEl && !dEl && !tdEl && !msEl) return;
 
     function fmt(n) {
@@ -330,17 +322,15 @@ function startTogetherCounter() {
     }
 
     function update() {
-        const now = new Date();
+        const now  = new Date();
         const diff = now.getTime() - firstMeet;
 
-        // ✅ Fix: Accurate year/month/day calculation
         let years  = now.getFullYear() - 2019;
-        let months = now.getMonth() - 2; // March = index 2
+        let months = now.getMonth() - 2;
         let days   = now.getDate() - 5;
 
         if (days < 0) {
             months--;
-            // Days in previous month
             const prevMonthDays = new Date(
                 now.getFullYear(),
                 now.getMonth(),
@@ -354,16 +344,13 @@ function startTogetherCounter() {
             months += 12;
         }
 
-        // ✅ Fix: Hours together (total hours since met, not current hour)
         const totalHours = Math.floor(diff / 3600000);
+        const totalDays  = Math.floor(diff / 86400000);
 
         if (yEl)  yEl.textContent  = years;
         if (mEl)  mEl.textContent  = months;
         if (dEl)  dEl.textContent  = days;
-        if (hEl)  hEl.textContent  = totalHours.toLocaleString(); // ✅ Fixed
-
-        const totalDays = Math.floor(diff / 86400000);
-
+        if (hEl)  hEl.textContent  = totalHours.toLocaleString();
         if (tdEl) tdEl.textContent = totalDays.toLocaleString();
         if (hbEl) hbEl.textContent = fmt(totalDays * 100000);
         if (kEl)  kEl.textContent  = (totalDays * 3).toLocaleString();
@@ -372,7 +359,6 @@ function startTogetherCounter() {
     }
 
     update();
-    // Update every minute - saves CPU
     setInterval(update, 60000);
 }
 
@@ -384,7 +370,6 @@ function animateLoveMeter() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Small delay for visual effect
                 setTimeout(() => {
                     meter.style.transition = 'width 2.5s ease';
                     meter.style.width = '100%';
@@ -402,24 +387,28 @@ function animateStoryCards() {
     const cards = document.querySelectorAll('.story-card');
     if (!cards.length) return;
 
+    // ✅ Set initial styles before observing
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // ✅ Fix: Correct index using indexOf
+                const index = Array.from(cards).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                }, i * 150);
+                }, index * 150);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease';
-        observer.observe(card);
-    });
+    cards.forEach(card => observer.observe(card));
 }
 
 // ===== Promise Items Animation =====
@@ -427,24 +416,28 @@ function animatePromises() {
     const items = document.querySelectorAll('.promise-item');
     if (!items.length) return;
 
+    // ✅ Set initial styles before observing
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-25px)';
+        item.style.transition = 'all 0.5s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // ✅ Fix: Correct index using indexOf
+                const index = Array.from(items).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateX(0)';
-                }, i * 120);
+                }, index * 120);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    items.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-25px)';
-        item.style.transition = 'all 0.5s ease';
-        observer.observe(item);
-    });
+    items.forEach(item => observer.observe(item));
 }
 
 // ===== Together Cards Animation =====
@@ -452,24 +445,28 @@ function animateTogetherCards() {
     const cards = document.querySelectorAll('.together-card');
     if (!cards.length) return;
 
+    // ✅ Set initial styles before observing
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(25px) scale(0.95)';
+        card.style.transition = 'all 0.5s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // ✅ Fix: Correct index using indexOf
+                const index = Array.from(cards).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0) scale(1)';
-                }, i * 120);
+                }, index * 120);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(25px) scale(0.95)';
-        card.style.transition = 'all 0.5s ease';
-        observer.observe(card);
-    });
+    cards.forEach(card => observer.observe(card));
 }
 
 // ===== Stat Items Animation =====
@@ -477,53 +474,28 @@ function animateStatItems() {
     const items = document.querySelectorAll('.stat-item');
     if (!items.length) return;
 
+    // ✅ Set initial styles before observing
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(25px)';
+        item.style.transition = 'all 0.5s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // ✅ Fix: Correct index using indexOf
+                const index = Array.from(items).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                }, i * 150);
+                }, index * 150);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    items.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(25px)';
-        item.style.transition = 'all 0.5s ease';
-        observer.observe(item);
-    });
-}
-
-// ===== Music Toggle =====
-function setupMusic() {
-    const toggle = document.getElementById('musicToggle');
-    if (!toggle) return;
-
-    let isPlaying = false;
-    const icon = toggle.querySelector('span');
-
-    toggle.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        toggle.classList.toggle('playing', isPlaying);
-        if (icon) icon.textContent = isPlaying ? '🎶' : '🎵';
-    });
-}
-
-// ===== Scroll to Top =====
-function setupScrollTop() {
-    const btn = document.getElementById('scrollTop');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    items.forEach(item => observer.observe(item));
 }
 
 // ===== Parallax - Lightweight =====
@@ -560,8 +532,8 @@ document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
     startTogetherCounter();
     animateLoveMeter();
-    setupScrollTop();
-    setupMusic();
+    // ✅ REMOVED: setupScrollTop() - now in common.js
+    // ✅ REMOVED: setupMusic() - now in music.js
 
     // Animations
     animateStoryCards();

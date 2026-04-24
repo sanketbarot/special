@@ -1,12 +1,25 @@
 /* ===== Google Fonts ===== */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* ===== Music Player Theme - Blue ===== */
+/* ✅ Only variables needed - player styles in common.css */
+:root {
+    --music-color:    rgba(74, 144, 217, 0.25);
+    --music-text:     #64b5f6;
+    --music-gradient: linear-gradient(45deg, #1565c0, #4a90d9);
+    --music-progress: linear-gradient(90deg, #1565c0, #4a90d9);
+    --music-shadow:   rgba(74, 144, 217, 0.4);
+    --music-thumb:    #4a90d9;
+    --music-hover:    #64b5f6;
+}
+
 /* ===== Husband Page Background ===== */
 body {
     background: linear-gradient(135deg, #000a1a, #001133, #0a0a2d, #000a1a);
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    overflow-x: hidden;
 }
 
 /* ===== Particles Background ===== */
@@ -161,7 +174,6 @@ body {
     border-radius: 15px;
     padding: 15px 20px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
 .quick-stat:hover {
@@ -184,7 +196,6 @@ body {
 
 .quick-stat strong {
     color: #64b5f6;
-    font-size: 0.95rem;
     font-family: 'Dancing Script', cursive;
     font-size: 1.1rem;
     display: block;
@@ -354,7 +365,7 @@ body {
 
 @keyframes pulseArrow {
     0%, 100% { opacity: 0.4; transform: translateX(0); }
-    50%       { opacity: 1; transform: translateX(5px); }
+    50%       { opacity: 1;   transform: translateX(5px); }
 }
 
 /* ===== Letter Section ===== */
@@ -376,7 +387,6 @@ body {
     padding: 50px 40px;
     position: relative;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
 }
 
 .letter-paper::before {
@@ -389,7 +399,6 @@ body {
     filter: drop-shadow(0 0 10px rgba(74, 144, 217, 0.3));
 }
 
-/* Decorative lines */
 .letter-paper::after {
     content: '';
     position: absolute;
@@ -593,36 +602,14 @@ body {
     padding-top: 5px;
 }
 
-/* ===== Scroll to Top ===== */
+/* ===== Scroll Top - Blue Theme Override ===== */
+/* ✅ Only override - base styles in common.css */
 .scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
     background: linear-gradient(45deg, #1565c0, #4a90d9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
     box-shadow: 0 5px 20px rgba(74, 144, 217, 0.4);
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .scroll-top:hover {
-    transform: scale(1.1) translateY(-3px);
     box-shadow: 0 8px 30px rgba(74, 144, 217, 0.6);
 }
 

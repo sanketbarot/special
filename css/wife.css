@@ -1,12 +1,24 @@
 /* ===== Google Fonts ===== */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* ===== Music Player Theme - Pink/Rose ===== */
+:root {
+    --music-color:    rgba(255, 64, 129, 0.25);
+    --music-text:     #ff80ab;
+    --music-gradient: linear-gradient(45deg, #ff4081, #e040fb);
+    --music-progress: linear-gradient(90deg, #ff4081, #e040fb);
+    --music-shadow:   rgba(255, 64, 129, 0.4);
+    --music-thumb:    #ff4081;
+    --music-hover:    #ff80ab;
+}
+
 /* ===== Wife Page Background ===== */
 body {
     background: linear-gradient(135deg, #1a000d, #2d0019, #1a0022, #0d0011);
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    overflow-x: hidden; /* ✅ Fix */
 }
 
 /* ===== Sparkles Background ===== */
@@ -141,14 +153,16 @@ body {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid rgba(255, 64, 129, 0.3);
-    box-shadow: 0 0 50px rgba(255, 64, 129, 0.3), 0 0 100px rgba(255, 64, 129, 0.1);
+    box-shadow: 0 0 50px rgba(255, 64, 129, 0.3),
+                0 0 100px rgba(255, 64, 129, 0.1);
     display: block;
     animation: photoGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes photoGlow {
     from { box-shadow: 0 0 30px rgba(255, 64, 129, 0.3); }
-    to   { box-shadow: 0 0 60px rgba(255, 64, 129, 0.5), 0 0 100px rgba(224, 64, 251, 0.2); }
+    to   { box-shadow: 0 0 60px rgba(255, 64, 129, 0.5),
+                       0 0 100px rgba(224, 64, 251, 0.2); }
 }
 
 /* ===== Hero Name ===== */
@@ -194,7 +208,6 @@ body {
     border-radius: 15px;
     padding: 15px 20px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
 .pink-stat {
@@ -430,7 +443,6 @@ body {
     padding: 50px 40px;
     text-align: center;
     position: relative;
-    backdrop-filter: blur(10px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
@@ -509,8 +521,7 @@ body {
     border: 2px solid rgba(255, 64, 129, 0.2);
     border-top: none;
     border-radius: 0 0 20px 20px;
-    padding: 40px 40px;
-    backdrop-filter: blur(10px);
+    padding: 40px;
 }
 
 .message-date {
@@ -603,36 +614,14 @@ body {
     color: #ff80ab;
 }
 
-/* ===== Scroll to Top ===== */
+/* ===== Scroll Top - Pink Theme Override ===== */
+/* ✅ Only override - base styles in common.css */
 .scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
     background: linear-gradient(45deg, #ff4081, #e040fb);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
     box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4);
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .scroll-top:hover {
-    transform: scale(1.1) translateY(-3px);
     box-shadow: 0 8px 30px rgba(255, 64, 129, 0.6);
 }
 
@@ -689,49 +678,15 @@ body {
 }
 
 @media (max-width: 480px) {
-    .pink-name {
-        font-size: 2.8rem;
-    }
-
-    .crown-icon {
-        font-size: 2.5rem;
-    }
-
-    .queen-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .traits-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .title-tags {
-        gap: 8px;
-    }
-
-    .tag {
-        padding: 6px 15px;
-        font-size: 0.85rem;
-    }
-
-    .poem-card {
-        padding: 25px 18px;
-    }
-
-    .poem-line {
-        font-size: 1rem;
-    }
-
-    .why-item {
-        padding: 20px;
-    }
-
-    .why-icon {
-        font-size: 2rem;
-        min-width: 40px;
-    }
-
-    .message-paper {
-        padding: 25px 18px;
-    }
+    .pink-name      { font-size: 2.8rem; }
+    .crown-icon     { font-size: 2.5rem; }
+    .queen-grid     { grid-template-columns: 1fr; }
+    .traits-grid    { grid-template-columns: 1fr; }
+    .title-tags     { gap: 8px; }
+    .tag            { padding: 6px 15px; font-size: 0.85rem; }
+    .poem-card      { padding: 25px 18px; }
+    .poem-line      { font-size: 1rem; }
+    .why-item       { padding: 20px; }
+    .why-icon       { font-size: 2rem; min-width: 40px; }
+    .message-paper  { padding: 25px 18px; }
 }

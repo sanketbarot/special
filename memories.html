@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Beautiful Memories - Sanket & Urvashi</title>
 
-     <!-- DNS Prefetch for fast font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/memories.css">
 </head>
 <body>
+
     <div class="stars-bg" id="starsBg"></div>
 
     <!-- Navigation -->
@@ -73,7 +73,6 @@
                 <p class="section-sub">Click on any photo to view it ❤️</p>
             </div>
 
-            <!-- Gallery Filter -->
             <div class="gallery-filter">
                 <button class="filter-btn active" data-filter="all">All ❤️</button>
                 <button class="filter-btn" data-filter="love">Love 💕</button>
@@ -83,7 +82,8 @@
 
             <div class="gallery-grid" id="galleryGrid">
                 <div class="gallery-item fade-in" data-category="love">
-                    <img src="https://via.placeholder.com/400x300?text=Our+First+Date" alt="Our First Date">
+                    <img src="https://via.placeholder.com/400x300?text=Our+First+Date"
+                         alt="Our First Date" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>❤️ Our First Date</h3>
@@ -92,7 +92,8 @@
                     </div>
                 </div>
                 <div class="gallery-item fade-in" data-category="special">
-                    <img src="https://via.placeholder.com/400x300?text=Wedding+Day" alt="Wedding Day">
+                    <img src="https://via.placeholder.com/400x300?text=Wedding+Day"
+                         alt="Wedding Day" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>💒 Our Wedding Day</h3>
@@ -101,7 +102,8 @@
                     </div>
                 </div>
                 <div class="gallery-item fade-in" data-category="trips">
-                    <img src="https://via.placeholder.com/400x300?text=First+Trip" alt="First Trip">
+                    <img src="https://via.placeholder.com/400x300?text=First+Trip"
+                         alt="First Trip" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>✈️ Our First Trip</h3>
@@ -110,7 +112,8 @@
                     </div>
                 </div>
                 <div class="gallery-item fade-in" data-category="special">
-                    <img src="https://via.placeholder.com/400x300?text=Festival" alt="Festival">
+                    <img src="https://via.placeholder.com/400x300?text=Festival"
+                         alt="Festival" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>🎉 Festival Together</h3>
@@ -119,7 +122,8 @@
                     </div>
                 </div>
                 <div class="gallery-item fade-in" data-category="love">
-                    <img src="https://via.placeholder.com/400x300?text=Special+Moment" alt="Special Moment">
+                    <img src="https://via.placeholder.com/400x300?text=Special+Moment"
+                         alt="Special Moment" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>💕 Special Moments</h3>
@@ -128,7 +132,8 @@
                     </div>
                 </div>
                 <div class="gallery-item fade-in" data-category="love">
-                    <img src="https://via.placeholder.com/400x300?text=Together+Forever" alt="Together Forever">
+                    <img src="https://via.placeholder.com/400x300?text=Together+Forever"
+                         alt="Together Forever" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <h3>❤️ Together Forever</h3>
@@ -155,7 +160,6 @@
             <div class="timeline">
                 <div class="timeline-line"></div>
 
-                <!-- First Meet -->
                 <div class="timeline-item left fade-in">
                     <div class="timeline-dot">💫</div>
                     <div class="timeline-content">
@@ -165,7 +169,6 @@
                     </div>
                 </div>
 
-                <!-- Falling in Love -->
                 <div class="timeline-item right fade-in">
                     <div class="timeline-dot">💕</div>
                     <div class="timeline-content">
@@ -175,7 +178,6 @@
                     </div>
                 </div>
 
-                <!-- Wedding -->
                 <div class="timeline-item left fade-in">
                     <div class="timeline-dot">💍</div>
                     <div class="timeline-content">
@@ -185,7 +187,6 @@
                     </div>
                 </div>
 
-                <!-- Our Home -->
                 <div class="timeline-item right fade-in">
                     <div class="timeline-dot">🏠</div>
                     <div class="timeline-content">
@@ -195,7 +196,6 @@
                     </div>
                 </div>
 
-                <!-- Anniversary -->
                 <div class="timeline-item left fade-in">
                     <div class="timeline-dot">🎉</div>
                     <div class="timeline-content">
@@ -205,7 +205,6 @@
                     </div>
                 </div>
 
-                <!-- Forever -->
                 <div class="timeline-item right fade-in">
                     <div class="timeline-dot">∞</div>
                     <div class="timeline-content">
@@ -273,11 +272,7 @@
         </div>
     </section>
 
-    <!-- Scroll to Top -->
-    <div class="scroll-top" id="scrollTop">
-        <span>❤️</span>
-    </div>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-hearts">
             <span>💜</span><span>💕</span><span>❤️</span><span>💕</span><span>💜</span>
@@ -287,45 +282,51 @@
         <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
     </footer>
 
+    <!-- ✅ Music Player - Before scripts -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info">
+            <div class="music-icon" id="musicIcon">🎵</div>
+            <div class="music-details">
+                <p class="music-title" id="musicTitle">Our Love Song</p>
+                <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
+            </div>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
+            <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
+            <button class="music-btn" id="nextBtn" title="Next">⏭</button>
+        </div>
+        <div class="music-progress-container">
+            <span class="music-time" id="currentTime">0:00</span>
+            <div class="music-progress" id="musicProgress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <span class="music-time" id="totalTime">0:00</span>
+        </div>
+        <div class="music-volume">
+            <span>🔈</span>
+            <input type="range" id="volumeSlider"
+                   min="0" max="100" value="50"
+                   class="volume-slider">
+            <span>🔊</span>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" preload="none">
+        <source src="music/song1.mp3" type="audio/mpeg">
+        <source src="music/song1.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- ✅ Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <span>❤️</span>
+    </div>
+
+    <!-- ✅ Scripts - Correct Order -->
     <script src="js/common.js"></script>
+    <script src="js/music.js"></script>
     <script src="js/memories.js"></script>
-
-    <!-- Music Player -->
-<div class="music-player" id="musicPlayer">
-    <div class="music-info">
-        <div class="music-icon" id="musicIcon">🎵</div>
-        <div class="music-details">
-            <p class="music-title" id="musicTitle">Our Love Song</p>
-            <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
-        </div>
-    </div>
-    <div class="music-controls">
-        <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
-        <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
-        <button class="music-btn" id="nextBtn" title="Next">⏭</button>
-    </div>
-    <div class="music-progress-container">
-        <span class="music-time" id="currentTime">0:00</span>
-        <div class="music-progress" id="musicProgress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <span class="music-time" id="totalTime">0:00</span>
-    </div>
-    <div class="music-volume">
-        <span>🔈</span>
-        <input type="range" id="volumeSlider" 
-               min="0" max="100" value="50" 
-               class="volume-slider">
-        <span>🔊</span>
-    </div>
-</div>
-
-<!-- Audio Element -->
-<audio id="bgMusic" preload="none">
-    <!-- ✅ Add your music files here -->
-    <source src="music/song1.mp3" type="audio/mpeg">
-    <source src="music/song1.ogg" type="audio/ogg">
-</audio>
 
 </body>
 </html>
