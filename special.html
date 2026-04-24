@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Sanket & Urvashi 🎊</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T43XEEP1G7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T43XEEP1G7');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/special.css">
+</head>
+<body>
+
+    <!-- Fireworks Canvas -->
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-heart">❤️</span>
+            <span class="logo-text">S & U</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="husband.html">Sanket</a></li>
+            <li><a href="wife.html" class="active">Urvashi</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="calendar.html">Dates 📅</a></li>
+             <li><a href="special.html">🎊 Special</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Not Anniversary Day Message -->
+    <div class="not-today" id="notToday">
+        <div class="not-today-content">
+            <div class="lock-icon">🔒</div>
+            <h2>This Page is Locked!</h2>
+            <p>This special page will unlock on</p>
+            <h3>23rd December 2026 🎊</h3>
+            <p>Come back on our anniversary day!</p>
+            <div class="unlock-countdown" id="unlockCountdown"></div>
+            <a href="index.html" class="btn btn-primary">
+                Back to Home ❤️
+            </a>
+        </div>
+    </div>
+
+    <!-- Anniversary Content -->
+    <div class="special-page" id="specialPage" style="display:none;">
+
+        <!-- Hero Section -->
+        <section class="special-hero">
+            <div class="special-hero-content">
+
+                <!-- Animated Hearts -->
+                <div class="floating-hearts-special" id="floatingHeartsSpecial"></div>
+
+                <!-- Main Content -->
+                <div class="special-badge">🎊</div>
+                <h1 class="special-title">Happy Anniversary!</h1>
+                <h2 class="special-names">Sanket ❤️ Urvashi</h2>
+                <p class="special-date">23rd December 2026</p>
+
+                <!-- Rings Animation -->
+                <div class="rings-container">
+                    <div class="ring-special ring-s1"></div>
+                    <div class="ring-special ring-s2"></div>
+                    <div class="ring-special ring-s3"></div>
+                </div>
+
+                <!-- Couple Photo -->
+                <div class="special-photo-frame">
+                    <img src="https://via.placeholder.com/300x300?text=S+%26+U"
+                         alt="Sanket & Urvashi"
+                         id="specialPhoto">
+                </div>
+
+                <!-- Special Message -->
+                <div class="special-message-box">
+                    <h3>💌 Happy Anniversary My Love!</h3>
+                    <p>Today marks another beautiful year of our journey together. Every moment with you is a blessing, every memory is a treasure, and every day is better because of you.</p>
+                    <p>Thank you for being my partner, my best friend, and my everything. Here's to many more years of love, laughter, and happiness together!</p>
+                    <p class="special-sig">Forever Yours, Sanket ❤️</p>
+                </div>
+
+                <!-- Years Together -->
+                <div class="years-counter">
+                    <div class="years-number" id="yearsNumber">7</div>
+                    <div class="years-text">Years of Beautiful Love</div>
+                </div>
+
+                <!-- Special Buttons -->
+                <div class="special-buttons">
+                    <a href="memories.html" class="btn btn-primary">
+                        📸 Our Memories
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        ❤️ Our Love Story
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Timeline -->
+        <section class="special-timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="heart-divider">
+                        <span class="line"></span>
+                        <span class="heart">💕</span>
+                        <span class="line"></span>
+                    </div>
+                    <h2 class="section-title">Our Journey</h2>
+                </div>
+
+                <div class="special-timeline">
+                    <div class="st-item">
+                        <div class="st-icon">💫</div>
+                        <div class="st-content">
+                            <h3>5th March 2019</h3>
+                            <p>The day we first met ❤️</p>
+                        </div>
+                    </div>
+                    <div class="st-item">
+                        <div class="st-icon">💕</div>
+                        <div class="st-content">
+                            <h3>2019 - 2020</h3>
+                            <p>We fell in love 💕</p>
+                        </div>
+                    </div>
+                    <div class="st-item">
+                        <div class="st-icon">💍</div>
+                        <div class="st-content">
+                            <h3>Wedding Day</h3>
+                            <p>We said "I Do" 💍</p>
+                        </div>
+                    </div>
+                    <div class="st-item special-item">
+                        <div class="st-icon">🎊</div>
+                        <div class="st-content">
+                            <h3>23 Dec 2026</h3>
+                            <p>Today - Our Anniversary! 🎊</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="heart-divider">
+                        <span class="line"></span>
+                        <span class="heart">🌟</span>
+                        <span class="line"></span>
+                    </div>
+                    <h2 class="section-title">Anniversary Wishes</h2>
+                </div>
+
+                <div class="wishes-grid">
+                    <div class="wish-card">
+                        <div class="wish-icon">🌹</div>
+                        <p>"May our love grow stronger with each passing year"</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">✨</div>
+                        <p>"Every day with you is a gift I will always treasure"</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">💖</div>
+                        <p>"You are my today and all of my tomorrows"</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">🎊</div>
+                        <p>"Here's to love, laughter, and happily ever after"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-hearts">
+                <span>❤️</span><span>💕</span><span>💖</span><span>💗</span><span>💘</span>
+            </div>
+            <p class="footer-text">Happy Anniversary Sanket & Urvashi! 🎊</p>
+            <p class="footer-sub">23rd December 2026 • Forever & Always 💕</p>
+            <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
+        </footer>
+
+    </div>
+
+    
+
+    <div class="scroll-top" id="scrollTop">
+        <span>❤️</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/special.js"></script>
+
+</body>
+</html>

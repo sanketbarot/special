@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Special Dates - Sanket & Urvashi</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T43XEEP1G7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T43XEEP1G7');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+
+    <div class="stars-cal" id="starsCal"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-heart">❤️</span>
+            <span class="logo-text">S & U</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="husband.html">Sanket</a></li>
+            <li><a href="wife.html">Urvashi</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="calendar.html" class="active">Dates 📅</a></li>
+             <li><a href="special.html">🎊 Special</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="cal-hero">
+        <div class="cal-hero-content">
+            <div class="cal-icon">🗓️</div>
+            <h1 class="cal-title">Our Special Dates</h1>
+            <p class="cal-sub">Every date that made our love story beautiful ❤️</p>
+        </div>
+    </section>
+
+    <!-- Calendar Navigation -->
+    <section class="calendar-section">
+        <div class="container">
+            <div class="cal-nav">
+                <button class="cal-nav-btn" id="prevMonth">←</button>
+                <div class="cal-month-year">
+                    <h2 id="monthName">December</h2>
+                    <span id="yearName">2026</span>
+                </div>
+                <button class="cal-nav-btn" id="nextMonth">→</button>
+            </div>
+
+            <!-- Days Header -->
+            <div class="cal-days-header">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="cal-grid" id="calGrid"></div>
+
+            <!-- Event Popup -->
+            <div class="event-popup" id="eventPopup" style="display:none;">
+                <div class="event-popup-content">
+                    <button class="popup-close" id="popupClose">✕</button>
+                    <div class="popup-icon" id="popupIcon"></div>
+                    <h3 class="popup-title" id="popupTitle"></h3>
+                    <p class="popup-date" id="popupDate"></p>
+                    <p class="popup-desc" id="popupDesc"></p>
+                    <div class="popup-days" id="popupDays"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Dates List -->
+    <section class="dates-list-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="heart-divider">
+                    <span class="line"></span>
+                    <span class="heart">💕</span>
+                    <span class="line"></span>
+                </div>
+                <h2 class="section-title">All Our Special Dates</h2>
+            </div>
+
+            <div class="dates-list" id="datesList"></div>
+        </div>
+    </section>
+
+    <!-- Upcoming Section -->
+    <section class="upcoming-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="heart-divider">
+                    <span class="line"></span>
+                    <span class="heart">⏰</span>
+                    <span class="line"></span>
+                </div>
+                <h2 class="section-title">Next Special Date</h2>
+            </div>
+
+            <div class="upcoming-card fade-in" id="upcomingCard">
+                <div class="upcoming-icon" id="upcomingIcon">❤️</div>
+                <h3 class="upcoming-title" id="upcomingTitle">Loading...</h3>
+                <p class="upcoming-date" id="upcomingDate"></p>
+                <div class="upcoming-countdown" id="upcomingCountdown"></div>
+                <p class="upcoming-desc" id="upcomingDesc"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-hearts">
+            <span>❤️</span><span>💕</span><span>💖</span><span>💗</span><span>💘</span>
+        </div>
+        <p class="footer-text">Made with ❤️ by Sanket for his Queen Urvashi</p>
+        <p class="footer-sub">Together Since 5th March 2019 • Forever & Always 💕</p>
+        <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
+    </footer>
+
+ 
+
+    <div class="scroll-top" id="scrollTop"><span>❤️</span></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/calendar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+/* ===== Music Player Theme ===== */
+:root {
+    --music-color:    rgba(255, 64, 129, 0.25);
+    --music-text:     #ff80ab;
+    --music-gradient: linear-gradient(45deg, #ff4081, #e040fb);
+    --music-progress: linear-gradient(90deg, #ff4081, #e040fb);
+    --music-shadow:   rgba(255, 64, 129, 0.4);
+    --music-thumb:    #ff4081;
+    --music-hover:    #ff4081;
+}
+
+/* ===== Special Page Background ===== */
+body {
+    background: linear-gradient(135deg, #0a0000, #1a0008, #0d0011, #0a0a1a);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Canvas ===== */
+#fireworksCanvas,
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#fireworksCanvas { z-index: 0; }
+#confettiCanvas  { z-index: 2; }
+
+/* ===== Not Today Page ===== */
+.not-today {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0000, #1a0008, #0d0011);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    text-align: center;
+    padding: 20px;
+}
+
+.not-today-content {
+    background: rgba(255, 64, 129, 0.05);
+    border: 2px solid rgba(255, 64, 129, 0.2);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.lock-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: lockBounce 2s ease-in-out infinite;
+}
+
+@keyframes lockBounce {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.1); }
+}
+
+.not-today-content h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #ff4081;
+    margin-bottom: 15px;
+}
+
+.not-today-content p {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.not-today-content h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ff80ab;
+    margin-bottom: 20px;
+}
+
+.unlock-countdown {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #ff4081;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 64, 129, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 64, 129, 0.2);
+}
+
+/* ===== Special Page ===== */
+.special-page {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Special Hero ===== */
+.special-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+/* Floating Hearts */
+.floating-hearts-special {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatHeartUp linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatHeartUp {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0.6; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+/* Badge */
+.special-badge {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: badgeBounce 1s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 64, 129, 0.5));
+}
+
+@keyframes badgeBounce {
+    0%, 100% { transform: scale(1) rotate(-5deg); }
+    50%       { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Title */
+.special-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    background: linear-gradient(45deg, #ff4081, #e040fb, #ff80ab, #ff4081);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Names */
+.special-names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff80ab;
+    margin-bottom: 10px;
+}
+
+/* Date */
+.special-date {
+    font-size: 1rem;
+    color: #aaa;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Rings */
+.rings-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.ring-special {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255, 64, 129, 0.1);
+    animation: ringPulseSpecial 3s ease-in-out infinite;
+}
+
+.ring-s1 { width: 300px; height: 300px; }
+.ring-s2 { width: 450px; height: 450px; animation-delay: 0.5s; }
+.ring-s3 { width: 600px; height: 600px; animation-delay: 1s; }
+
+@keyframes ringPulseSpecial {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.3; }
+    50%       { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
+}
+
+/* Photo Frame */
+.special-photo-frame {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ff4081;
+    box-shadow: 0 0 30px rgba(255, 64, 129, 0.4),
+                0 0 60px rgba(255, 64, 129, 0.2);
+    animation: photoGlowSpecial 2s ease-in-out infinite alternate;
+}
+
+@keyframes photoGlowSpecial {
+    from { box-shadow: 0 0 30px rgba(255, 64, 129, 0.4); }
+    to   { box-shadow: 0 0 60px rgba(255, 64, 129, 0.7),
+                       0 0 100px rgba(224, 64, 251, 0.3); }
+}
+
+.special-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Message Box */
+.special-message-box {
+    background: rgba(255, 64, 129, 0.06);
+    border: 2px solid rgba(255, 64, 129, 0.2);
+    border-radius: 25px;
+    padding: 40px 35px;
+    margin: 30px auto;
+    max-width: 650px;
+    text-align: left;
+}
+
+.special-message-box h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ff4081;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.special-message-box p {
+    color: #ccc;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.special-sig {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 1.5rem !important;
+    color: #ff4081 !important;
+    text-align: right !important;
+    margin-top: 20px !important;
+}
+
+/* Years Counter */
+.years-counter {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.years-number {
+    font-size: 6rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff4081, #e040fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    animation: yearsPulse 2s ease-in-out infinite;
+}
+
+@keyframes yearsPulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.05); }
+}
+
+.years-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff80ab;
+    margin-top: 10px;
+}
+
+/* Special Buttons */
+.special-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* ===== Special Timeline ===== */
+.special-timeline-section {
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.special-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.st-item {
+    background: rgba(255, 64, 129, 0.08);
+    border: 1px solid rgba(255, 64, 129, 0.2);
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.st-item:hover {
+    transform: translateY(-8px);
+    border-color: #ff4081;
+    box-shadow: 0 15px 35px rgba(255, 64, 129, 0.15);
+}
+
+.special-item {
+    background: rgba(255, 64, 129, 0.15) !important;
+    border-color: #ff4081 !important;
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.2);
+}
+
+.st-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.st-content h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #ff80ab;
+    margin-bottom: 5px;
+}
+
+.st-content p {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* ===== Wishes Section ===== */
+.wishes-section {
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wish-card {
+    background: rgba(255, 64, 129, 0.06);
+    border: 1px solid rgba(255, 64, 129, 0.15);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.wish-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 64, 129, 0.4);
+    box-shadow: 0 15px 35px rgba(255, 64, 129, 0.12);
+}
+
+.wish-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.wish-card p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .special-title  { font-size: 3.5rem; }
+    .special-names  { font-size: 2rem; }
+    .years-number   { font-size: 4rem; }
+    .special-buttons { flex-direction: column; align-items: center; }
+    .special-timeline { flex-direction: column; align-items: center; }
+    .st-item        { width: 100%; max-width: 300px; }
+    .not-today-content { padding: 40px 25px; }
+    .special-message-box { padding: 25px 20px; }
+}
+
+@media (max-width: 480px) {
+    .special-title  { font-size: 2.8rem; }
+    .special-badge  { font-size: 3.5rem; }
+    .years-number   { font-size: 3.5rem; }
+}
