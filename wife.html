@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urvashi - My Beautiful Queen 👑</title>
 
-     <!-- DNS Prefetch for fast font loading -->
+    <!-- ✅ Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T43XEEP1G7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T43XEEP1G7');
+    </script>
+    <!-- ✅ End Google Analytics -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/wife.css">
 </head>
 <body>
+
     <div class="sparkles-bg" id="sparklesBg"></div>
 
     <!-- Navigation -->
@@ -39,6 +48,7 @@
         <div class="hero-overlay"></div>
         <div class="floating-roses" id="floatingRoses"></div>
         <div class="hero-content">
+
             <!-- Crown -->
             <div class="crown-icon">👑</div>
 
@@ -46,7 +56,9 @@
             <div class="profile-frame pink-frame">
                 <div class="frame-glow"></div>
                 <div class="frame-glow frame-glow-2"></div>
-                <img src="https://via.placeholder.com/300x300?text=Urvashi" alt="Urvashi">
+                <img src="https://via.placeholder.com/300x300?text=Urvashi"
+                     alt="Urvashi"
+                     loading="lazy">
             </div>
 
             <h1 class="hero-name pink-name">Urvashi</h1>
@@ -282,11 +294,7 @@
         </div>
     </section>
 
-    <!-- Scroll to Top -->
-    <div class="scroll-top" id="scrollTop">
-        <span>💖</span>
-    </div>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-hearts">
             <span>💖</span><span>❤️</span><span>💖</span><span>❤️</span><span>💖</span>
@@ -296,46 +304,52 @@
         <p class="footer-copy">© 2026 Sanket ❤️ Urvashi</p>
     </footer>
 
+    <!-- ✅ Music Player - Before Scripts -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info">
+            <div class="music-icon" id="musicIcon">🎵</div>
+            <div class="music-details">
+                <p class="music-title" id="musicTitle">Our Love Song</p>
+                <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
+            </div>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
+            <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
+            <button class="music-btn" id="nextBtn" title="Next">⏭</button>
+        </div>
+        <div class="music-progress-container">
+            <span class="music-time" id="currentTime">0:00</span>
+            <div class="music-progress" id="musicProgress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <span class="music-time" id="totalTime">0:00</span>
+        </div>
+        <div class="music-volume">
+            <span>🔈</span>
+            <input type="range" id="volumeSlider"
+                   min="0" max="100" value="50"
+                   class="volume-slider">
+            <span>🔊</span>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" preload="none">
+        <source src="music/song1.mp3" type="audio/mpeg">
+        <source src="music/song1.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- ✅ Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <span>💖</span>
+    </div>
+
+    <!-- ✅ Scripts - Correct Order -->
     <script src="js/common.js"></script>
-    <script src="js/music.js"></script> 
+    <script src="js/music.js"></script>
+    <script src="js/analytics.js"></script>
     <script src="js/wife.js"></script>
-
-    <!-- Music Player -->
-<div class="music-player" id="musicPlayer">
-    <div class="music-info">
-        <div class="music-icon" id="musicIcon">🎵</div>
-        <div class="music-details">
-            <p class="music-title" id="musicTitle">Our Love Song</p>
-            <p class="music-artist" id="musicArtist">Sanket & Urvashi</p>
-        </div>
-    </div>
-    <div class="music-controls">
-        <button class="music-btn" id="prevBtn" title="Previous">⏮</button>
-        <button class="music-btn play-btn" id="playBtn" title="Play/Pause">▶️</button>
-        <button class="music-btn" id="nextBtn" title="Next">⏭</button>
-    </div>
-    <div class="music-progress-container">
-        <span class="music-time" id="currentTime">0:00</span>
-        <div class="music-progress" id="musicProgress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <span class="music-time" id="totalTime">0:00</span>
-    </div>
-    <div class="music-volume">
-        <span>🔈</span>
-        <input type="range" id="volumeSlider" 
-               min="0" max="100" value="50" 
-               class="volume-slider">
-        <span>🔊</span>
-    </div>
-</div>
-
-<!-- Audio Element -->
-<audio id="bgMusic" preload="none">
-    <!-- ✅ Add your music files here -->
-    <source src="music/song1.mp3" type="audio/mpeg">
-    <source src="music/song1.ogg" type="audio/ogg">
-</audio>
 
 </body>
 </html>
